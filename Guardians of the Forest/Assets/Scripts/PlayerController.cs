@@ -12,13 +12,28 @@ public class PlayerController : MonoBehaviour
 
     private bool playerMoving;
 
-    private Vector2 lastMove;
+    public Vector2 lastMove;
+
+    private static bool playerExists;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+
+        if (!playerExists)
+        {
+            //checks to see if the game object already exists
+            playerExists = true;
+            //stops Game Object from being destroyed when it changes scenes
+            DontDestroyOnLoad(transform.gameObject);
+        } else
+        {
+            //if the game object exists already, destroy the new one created when the scene loads
+            Destroy(gameObject);
+        }
+  
     }
 
     // Update is called once per frame
