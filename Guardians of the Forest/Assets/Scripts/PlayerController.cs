@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour
 
     private static bool playerExists;
 
+    private bool attacking;
+    public float attackTime;
+    private float attackTimeCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
        playerMoving = false;
+
+        if (!attacking)
+        { 
 
         /**When the player is moving left, the x axis will be -1 & when the player is moving right, the x axis will be 1,
          * so this method will only be applied when the Player is moving left or right.**/
@@ -70,10 +77,30 @@ public class PlayerController : MonoBehaviour
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
         }
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            attackTimeCounter = attackTime;
+            attacking = true;
+            myRigidbody.velocity = Vector2.zero;
+            anim.SetBool("Attack", true);
+        }
+        }
+
+        if(attackTimeCounter > 0)
+        {
+            attackTimeCounter -= Time.deltaTime;
+        }
+
+        if (attackTimeCounter <= 0)
+        {
+            attacking = false;
+            anim.SetBool("Attack", false);
+        }
+
         anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
         anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
         anim.SetBool("PlayerMoving", playerMoving);
         anim.SetFloat("LastMoveX", lastMove.x);
-        anim.SetFloat("LastMoveY", lastMove.y);
+        anim.SetFloat("LastMoveY", lastMove.y);        
     }
 }
