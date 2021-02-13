@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9146106649032060487}
   - component: {fileID: 9146106649032060486}
   - component: {fileID: 9146106649032060485}
+  - component: {fileID: 983487657}
+  - component: {fileID: 6545820840614350392}
   m_Layer: 5
   m_Name: DamageNumbers
   m_TagString: Untagged
@@ -100,6 +102,34 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &983487657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146106649032060484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c54e31b60f7b94987fce58fc2e0465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  damageNumber: 33
+  displayNumber: {fileID: 9146106649421980729}
+--- !u!114 &6545820840614350392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146106649032060484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830720ddbac9ca4409369f57e0e61f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 1
 --- !u!1 &9146106649421980727
 GameObject:
   m_ObjectHideFlags: 0
