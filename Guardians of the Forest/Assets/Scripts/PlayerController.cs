@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float attackTime;
     private float attackTimeCounter;
 
+    public string startPoint;
+
     // Start is called before the first frame update
     void Start()
     {
