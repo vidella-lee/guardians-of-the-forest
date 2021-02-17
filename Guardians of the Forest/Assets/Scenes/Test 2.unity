@@ -8044,6 +8044,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1585231422, guid: f249bb1c0954e454b81153304846ab20, type: 3}
+      propertyPath: flashLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1585231422, guid: f249bb1c0954e454b81153304846ab20, type: 3}
+      propertyPath: playerMaxHealth
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 5126547898807516803, guid: f249bb1c0954e454b81153304846ab20,
         type: 3}
       propertyPath: m_Name
