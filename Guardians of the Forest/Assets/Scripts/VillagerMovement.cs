@@ -23,10 +23,15 @@ public class VillagerMovement : MonoBehaviour
     private Vector2 maxWalkPoint;
     private bool hasWalkZone;
 
+    public bool canMove;
+    private DialogueManager theDM;
+
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        theDM = FindObjectOfType<DialogueManager>();
 
         waitCounter = waitTime;
         walkCounter = walktime;
@@ -40,13 +45,25 @@ public class VillagerMovement : MonoBehaviour
             maxWalkPoint = walkZone.bounds.max;
 
             hasWalkZone = true;
-        }    
+        }
+        canMove = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!theDM.dialogueActive)
+        {
+            canMove = true;
+        }
+
+        if (!canMove)
+        {
+            myRigidBody.velocity = Vector2.zero;
+            return; //return cancels out of return loop so none of the following code can run
+        }
+
         if (isWalking)
         {
             walkCounter -= Time.deltaTime;

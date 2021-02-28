@@ -34,6 +34,11 @@ public class dialogueHolder : MonoBehaviour
                     dMan.currentLine = 0;
                     dMan.ShowDialogue();
                 }
+
+                if (transform.parent.GetComponent<VillagerMovement>() != null)
+                {
+                    transform.parent.GetComponent<VillagerMovement>().canMove = false;
+                }
             }
         }
     }
