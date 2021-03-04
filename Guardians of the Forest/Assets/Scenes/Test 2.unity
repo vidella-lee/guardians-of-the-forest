@@ -3237,6 +3237,7 @@ MonoBehaviour:
   - {fileID: 1913020722}
   questCompleted: 
   theDM: {fileID: 1398350276}
+  itemCollected: 
 --- !u!4 &959963231
 Transform:
   m_ObjectHideFlags: 0
@@ -3503,6 +3504,8 @@ MonoBehaviour:
   theQM: {fileID: 959963230}
   startText: Start Quest!
   endText: Good Job, Motherfucker!
+  isItemQuest: 0
+  targetItem: 
 --- !u!4 &1369538857
 Transform:
   m_ObjectHideFlags: 0
@@ -4274,6 +4277,8 @@ MonoBehaviour:
   theQM: {fileID: 959963230}
   startText: 
   endText: 
+  isItemQuest: 0
+  targetItem: 
 --- !u!4 &1665896318
 Transform:
   m_ObjectHideFlags: 0
@@ -4321,6 +4326,8 @@ MonoBehaviour:
   theQM: {fileID: 959963230}
   startText: Go home, bitch.
   endText: Congrats! Now go the fuck to sleep.
+  isItemQuest: 0
+  targetItem: 
 --- !u!4 &1689725230
 Transform:
   m_ObjectHideFlags: 0
@@ -8604,6 +8611,8 @@ MonoBehaviour:
   theQM: {fileID: 959963230}
   startText: Find the vase, bitch!
   endText: Congrats! bitch
+  isItemQuest: 1
+  targetItem: Vase
 --- !u!4 &1913020723
 Transform:
   m_ObjectHideFlags: 0
@@ -8779,8 +8788,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2131007835}
   - component: {fileID: 2131007834}
+  - component: {fileID: 2131007837}
+  - component: {fileID: 2131007836}
   m_Layer: 0
-  m_Name: roguelikeSheet_transparent_1279
+  m_Name: Vase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8852,6 +8863,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2131007836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131007833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f010fba9f7ef03e4fa12585e01dee10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questNumber: 3
+  itemName: Vase
+--- !u!58 &2131007837
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131007833}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1001 &2352644546841465802
 PrefabInstance:
   m_ObjectHideFlags: 0
