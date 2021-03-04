@@ -191,3 +191,4 @@ MonoBehaviour:
   maxHealth: 15
   currentHealth: 0
   expToGive: 25
+  enemyQuestName: RedSlime

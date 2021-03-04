@@ -9,6 +9,7 @@ public class QuestManager : MonoBehaviour
     public DialogueManager theDM;
 
     public string itemCollected;
+    public string enemyKilled;
    
     // Start is called before the first frame update
     void Start()
