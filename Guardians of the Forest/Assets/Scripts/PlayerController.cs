@@ -26,11 +26,14 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
 
+    private SFXManager sfxMan;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        sfxMan = FindObjectOfType<SFXManager>();
 
         if (!playerExists)
         {
@@ -111,6 +114,8 @@ public class PlayerController : MonoBehaviour
                 attacking = true;
                 myRigidbody.velocity = Vector2.zero;
                 anim.SetBool("Attack", true);
+
+                sfxMan.playerAttack.Play();
             }
             //check to see if movement is happening on both horizontal and vertical axes, AKA, diagonally
             /*if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.5f)
