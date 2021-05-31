@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int currentLevel;
+    public int currentHPLevel;
     public int currentExp;
 
     public int[] toLevelUp;
@@ -13,8 +14,10 @@ public class PlayerStats : MonoBehaviour
     public int[] defenseLevels;
 
     public int currentHP;
+    public int currentMP;
     public int currentAttack;
     public int currentDefense;
+    public int currentStealth;
 
     private PlayerHealthManager thePlayerHealth;
 
@@ -53,5 +56,17 @@ public class PlayerStats : MonoBehaviour
 
         currentAttack = attackLevels[currentLevel];
         currentDefense = defenseLevels[currentLevel];
+    }
+
+    public void LevelHPUp()
+    {
+        currentHPLevel++;
+        currentHP = HPLevels[currentLevel];
+
+        thePlayerHealth.playerMaxHealth = currentHP;
+        thePlayerHealth.playerCurrentHealth += currentHP - HPLevels[currentHPLevel - 1];
+
+        currentAttack = attackLevels[currentHPLevel];
+        currentDefense = defenseLevels[currentHPLevel];
     }
 }
