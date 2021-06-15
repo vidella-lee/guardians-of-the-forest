@@ -6,29 +6,59 @@ public class PlayerStats : MonoBehaviour
 {
     public int currentLevel;
     public int currentHPLevel;
-    public int currentExp;
 
+    /* CURRENT EXP BY TYPE */
+    public int currentExp;
+    public int generalExp;
+    public int currentVitalityExp;
+    public int currentMPExp;
+    public int currentAttackExp;
+    public int currentDefenseExp;
+    public int currentSneakyExp;
+    public int currentSpeedExp;
+    public int currentSpiritExp;
+
+    /* array to hold the required EXP to level up for each level */
     public int[] toLevelUp;
+
     public int[] HPLevels;
     public int[] attackLevels;
     public int[] defenseLevels;
 
-    public int currentHP;
-    public int currentMP;
-    public int currentAttack;
-    public int currentDefense;
-    public int currentStealth;
+    /* CURRENT STATS */
+    public int baseHP;
+    public int baseMP;
+    public int baseAttack;
+    public int baseDefense;
+    public int baseStealth;
+    public int baseSpeed;
+    public int baseSpiritAffinity;
+
+    /* INITIALIZE CURRENT STAT LEVELS */
+    //public int currentHPLevel;
+    //public int currentMPLevel;
+    //public int currentAttackLevel;
+    //public int currentDefenseLevel;
+    //public int currentStealthLevel;
+    //public int currentSpeedLevel;
+    //public int currentSpiritAffinityLevel;
+
+
+
 
     private PlayerHealthManager thePlayerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHP = HPLevels[1];
+        baseHP = HPLevels[1];
         currentAttack = attackLevels[1];
         currentDefense = defenseLevels[1];
 
         thePlayerHealth = FindObjectOfType<PlayerHealthManager>();
+
+
+        currentAttackLevel = 1;
     }
 
     // Update is called once per frame
@@ -49,24 +79,35 @@ public class PlayerStats : MonoBehaviour
     public void LevelUp()
     {
         currentLevel++;
-        currentHP = HPLevels[currentLevel];
+        baseHP = HPLevels[currentLevel];
 
-        thePlayerHealth.playerMaxHealth = currentHP;
-        thePlayerHealth.playerCurrentHealth += currentHP - HPLevels[currentLevel - 1];
+        thePlayerHealth.playerMaxHealth = baseHP;
+        thePlayerHealth.playerCurrentHealth += baseHP - HPLevels[currentLevel - 1];
 
         currentAttack = attackLevels[currentLevel];
         currentDefense = defenseLevels[currentLevel];
     }
 
+    public void LevelUpStat(string stat)
+    {
+        if (stat == "attack")
+        {
+            baseAttack += baseAttack * toLevelUp[currentAttackLevel + 1];
+
+            currentAttackLevel += 1;
+        }
+
+    }
+
     public void LevelHPUp()
     {
         currentHPLevel++;
-        currentHP = HPLevels[currentLevel];
+        baseHP = HPLevels[currentLevel];
 
-        thePlayerHealth.playerMaxHealth = currentHP;
+        thePlayerHealth.playerMaxHealth = baseHP;
         thePlayerHealth.playerCurrentHealth += currentHP - HPLevels[currentHPLevel - 1];
 
-        currentAttack = attackLevels[currentHPLevel];
-        currentDefense = defenseLevels[currentHPLevel];
+        //baseAttack = attackLevels[currentHPLevel];
+        //baseDefense = defenseLevels[currentHPLevel];
     }
 }
