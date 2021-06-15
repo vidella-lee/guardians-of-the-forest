@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public int currentLevel;
-    public int currentHPLevel;
 
     /* CURRENT EXP BY TYPE */
     public int currentExp;
@@ -35,13 +34,13 @@ public class PlayerStats : MonoBehaviour
     public int baseSpiritAffinity;
 
     /* INITIALIZE CURRENT STAT LEVELS */
-    //public int currentHPLevel;
-    //public int currentMPLevel;
-    //public int currentAttackLevel;
-    //public int currentDefenseLevel;
-    //public int currentStealthLevel;
-    //public int currentSpeedLevel;
-    //public int currentSpiritAffinityLevel;
+    public int currentHPLevel;
+    public int currentMPLevel;
+    public int currentAttackLevel;
+    public int currentDefenseLevel;
+    public int currentStealthLevel;
+    public int currentSpeedLevel;
+    public int currentSpiritAffinityLevel;
 
 
 
@@ -52,8 +51,8 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         baseHP = HPLevels[1];
-        currentAttack = attackLevels[1];
-        currentDefense = defenseLevels[1];
+        baseAttack = attackLevels[1];
+        baseDefense = defenseLevels[1];
 
         thePlayerHealth = FindObjectOfType<PlayerHealthManager>();
 
@@ -84,8 +83,8 @@ public class PlayerStats : MonoBehaviour
         thePlayerHealth.playerMaxHealth = baseHP;
         thePlayerHealth.playerCurrentHealth += baseHP - HPLevels[currentLevel - 1];
 
-        currentAttack = attackLevels[currentLevel];
-        currentDefense = defenseLevels[currentLevel];
+        baseAttack = attackLevels[currentLevel];
+        baseDefense = defenseLevels[currentLevel];
     }
 
     public void LevelUpStat(string stat)
@@ -105,7 +104,7 @@ public class PlayerStats : MonoBehaviour
         baseHP = HPLevels[currentLevel];
 
         thePlayerHealth.playerMaxHealth = baseHP;
-        thePlayerHealth.playerCurrentHealth += currentHP - HPLevels[currentHPLevel - 1];
+        thePlayerHealth.playerCurrentHealth += baseHP - HPLevels[currentHPLevel - 1];
 
         //baseAttack = attackLevels[currentHPLevel];
         //baseDefense = defenseLevels[currentHPLevel];

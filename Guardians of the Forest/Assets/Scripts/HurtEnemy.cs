@@ -29,7 +29,7 @@ public class HurtEnemy : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
 
-            currentDamage = damageToGive + thePS.currentAttack;
+            currentDamage = damageToGive + thePS.baseAttack;
 
             //Destroy(other.gameObject);
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(currentDamage);
